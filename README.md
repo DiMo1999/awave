@@ -6,6 +6,7 @@ Questo progetto consiste in un'applicazione web che ti permette di caricare un f
 ### Requirements
 To use awave, you need to have the following requirements installed on your system:
 - Git
+- Microsoft Visual C++ 14.0
 - Python 3.6 or higher
     - Flask
     - OpenCV
@@ -16,6 +17,7 @@ To use awave, you need to have the following requirements installed on your syst
 To install the required dependencies, you can use pip (the package installer for Python). 
 Open your terminal or command prompt and run the following command:
 If you don't have Python installed on your system, you can download it from [python](https://www.python.org/downloads/).
+Could be also needed [Win C++](https://visualstudio.microsoft.com/it/visual-cpp-build-tools/)
 If you don't have pip installed on your system, you can download it with the following command:
 ```python
 python get-pip.py
