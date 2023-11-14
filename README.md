@@ -5,7 +5,7 @@ Questo progetto consiste in un'applicazione web che ti permette di caricare un f
 ## 📋 Requirements & 📥 Installation
 ### Requirements
 To use awave, you need to have the following requirements installed on your system:
-- Git
+- Git (Git Bash)
 - Microsoft Visual C++ 14.0
 - Python 3.6 or higher
     - Flask
