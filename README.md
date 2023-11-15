@@ -1,4 +1,5 @@
-# 🧿 AWAVE - 🌈 audio2waveform
+# 🧿 AWAVE
+# 🌈 audio2waveform
 ## 📚 Description
 Web Application project that allow you upload a .wav file to generate the respectively circular waveform as .png 
 ## 📋 Requirements & 📥 Installation
