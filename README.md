@@ -4,7 +4,7 @@ Web Application project that allow you upload a .wav file to generate the respec
 ## 📋 Requirements & 📥 Installation
 ### Requirements
 To use awave, you need to have the following requirements installed on your system:
-- Git (Git Bash)
+- Git - Git Bash (run as administrator)
 - Microsoft Visual C++ 14.0
 - Python 3.6 or higher
     - Flask
