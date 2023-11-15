@@ -16,7 +16,7 @@ To use awave, you need to have the following requirements installed on your syst
 To install the required dependencies, you can use pip (the package installer for Python). 
 Open your terminal or command prompt and run the following command:
 If you don't have Python installed on your system, you can download it from [python](https://www.python.org/downloads/).
-Could be also needed [Win C++](https://visualstudio.microsoft.com/it/visual-cpp-build-tools/)
+Could be also needed [Win C++](https://visualstudio.microsoft.com/it/visual-cpp-build-tools/) only if needed
 If you don't have pip installed on your system, you can download it with the following command:
 ```python
 python get-pip.py
