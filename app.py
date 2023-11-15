@@ -5,12 +5,11 @@ import os
 
 app = Flask(__name__)
 
-# Use forward slash for paths on Windows
-app.config['UPLOAD_FOLDER'] = '.\\upload'
+app.config['UPLOAD_FOLDER'] = 'upload'
 app.config['ALLOWED_EXTENSIONS'] = {'wav'}
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+    return '.' in filename and filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -18,20 +17,14 @@ def upload_file():
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            
-            # Use os.path.join for creating file paths
+            if not os.path.isdir(app.config['UPLOAD_FOLDER']):
+                os.makedirs(app.config['UPLOAD_FOLDER']) 
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             print(file_path)
-
-            if not os.path.isdir(app.config['UPLOAD_FOLDER']):
-                os.makedirs(app.config['UPLOAD_FOLDER'])
-
             file.save(file_path)
-
             zoom = float(request.form.get('zoom'))
             start = float(request.form.get('start'))
             process_waveform(file_path, zoom, start)
-
             img_filename = filename.rsplit('.', 1)[0] + '.png'
             return redirect(url_for('uploaded_file', filename=img_filename))
 
@@ -39,7 +32,6 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    # Use os.path.join for creating file paths
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 if __name__ == "__main__":

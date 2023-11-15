@@ -7,7 +7,6 @@ CHUNK_SIZE = 10**4
 
 def process_waveform(input_path, zoom_factor, start_second):
     print("Reading the WAV file...")
-    print(input_path)
     rate, waveform = wavfile.read(input_path)
 
     start = int(rate * start_second)
@@ -35,16 +34,16 @@ def process_waveform(input_path, zoom_factor, start_second):
 
         x = radius * np.cos(theta)
         y = radius * np.sin(theta)
-        
+
         abs_values = np.abs(np.hstack((x, y)))
         scaling_factor = 500 / np.max(abs_values)
-        
+
         output_chunk = (x, y)
         results.append(output_chunk)
 
     # Cambia la dimensione dell'output 1000x1000
     output = np.ones((2000, 2000, 3), dtype=np.uint8) * 255
-    
+
     # Calcola il fattore di scala in modo che l'onda spezzata si adatti alla dimensione dell'output
     scaling_factor = min(output.shape[0], output.shape[1]) / np.max(np.abs(np.hstack((x, y)))) / 2 * 0.8
 
@@ -54,9 +53,14 @@ def process_waveform(input_path, zoom_factor, start_second):
         # Centra l'onda spezzata nell'output aggiungendo metà della dimensione dell'output alle coordinate x e y
         x = np.array(x * scaling_factor + output.shape[1] / 2, dtype=np.int32)
         y = np.array(y * scaling_factor + output.shape[0] / 2, dtype=np.int32)
+    """
         for i in range(1, len(x)):
-            poly_points = np.array([[(x[i-1], y[i-1]), (x[i], y[i])]], dtype=np.int32)
-            cv.polylines(output, poly_points, isClosed=True, color=(0,0,0), thickness=2)    
+            cv.line(output, (x[i-1], y[i-1]), (x[i], y[i]), (0,0,0), 2)
+    """
+    for i in range(1, len(x)):
+        poly_points = np.array([[(x[i-1], y[i-1]), (x[i], y[i])]], dtype=np.int32)
+        cv.polylines(output, poly_points, isClosed=False, color=(0,0,0), thickness=2)    
+
     output_name = input_path.rsplit('.', 1)[0] + '.png'
 
     print("Saving the image...")
@@ -66,7 +70,6 @@ def process_waveform(input_path, zoom_factor, start_second):
 
 
 def main():
-    print("start")
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', required=True, help='Path to input wav file.')
     parser.add_argument('-z', '--zoom', type=float, default=2.0, help='Zoom factor.')
