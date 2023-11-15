@@ -1,7 +1,6 @@
 # 🧿 AWAVE - 🌈 audio2waveform
 ## 📚 Description
-Questo progetto consiste in un'applicazione web che ti permette di caricare un file audio in formato WAV e generare un'immagine dell'onda sonora del file caricato.
-
+Web Application project that allow you upload a .wav file to generate the respectively circular waveform as .png 
 ## 📋 Requirements & 📥 Installation
 ### Requirements
 To use awave, you need to have the following requirements installed on your system:
