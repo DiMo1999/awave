@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = '.\upload\'
+app.config['UPLOAD_FOLDER'] = 'upload'
 app.config['ALLOWED_EXTENSIONS'] = {'wav'}
 
 def allowed_file(filename):
@@ -17,10 +17,8 @@ def upload_file():
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            """ 
-                if not os.path.isdir(app.config['UPLOAD_FOLDER']):
-                    os.makedirs(app.config['UPLOAD_FOLDER']) 
-            """
+            if not os.path.isdir(app.config['UPLOAD_FOLDER']):
+                os.makedirs(app.config['UPLOAD_FOLDER']) 
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             print(file_path)
             file.save(file_path)
