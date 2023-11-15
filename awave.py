@@ -71,13 +71,13 @@ def process_waveform(input_path, zoom_factor, start_second):
 
 def main():
     print("start")
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument('-i', '--input', required=True, help='Path to input wav file.')
-    #parser.add_argument('-z', '--zoom', type=float, default=2.0, help='Zoom factor.')
-    #parser.add_argument('-s', '--start', type=float, default=10, help='Start Second for zooming.')
-    #args = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--input', required=True, help='Path to input wav file.')
+    parser.add_argument('-z', '--zoom', type=float, default=2.0, help='Zoom factor.')
+    parser.add_argument('-s', '--start', type=float, default=10, help='Start Second for zooming.')
+    args = parser.parse_args()
 
-    #process_waveform(args.input, args.zoom, args.start)
+    process_waveform(args.input, args.zoom, args.start)
 
 if __name__ == '__main__':
     main()
