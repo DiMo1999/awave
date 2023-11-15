@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = './upload'
+app.config['UPLOAD_FOLDER'] = '.\upload'
 app.config['ALLOWED_EXTENSIONS'] = {'wav'}
 
 def allowed_file(filename):
