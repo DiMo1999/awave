@@ -1,9 +1,9 @@
 # 🧿 AWAVE
 ## 🌈 audio2waveform
-## 📚 Description
+### 📚 Description
 Web Application project that allow you upload a .wav file to generate the respectively circular waveform as .png 
-## 📋 Requirements & 📥 Installation
-### Requirements
+### 📋 Requirements & 📥 Installation
+#### Requirements
 To use awave, you need to have the following requirements installed on your system:
 - Git - Git Bash (run as administrator)
 - Microsoft Visual C++ 14.0
@@ -22,7 +22,7 @@ If you don't have pip installed on your system, you can download it with the fol
 ```python
 python get-pip.py
 ```
-### Installation
+#### Installation
 1. Clone the "awave" repository to your local machine.
 ```bash
 git clone https://github.com/DiMo1999/awave
@@ -37,12 +37,12 @@ pip install -r requirements.txt
 python app.py
 ```
 
-## 🚀 Usage
+### 🚀 Usage
 1. Open your web browser and go to `http://localhost:5000`.
 2. Adjust the zoom factor if needed.
 3. Drop the audio file you want to upload in the droparea.
 4. Wait for the waveform to be generated.
 5. The generated waveform image will be displayed on the page automatically
 
-## 📝 License
+### 📝 License
 "awave" is licensed under the GNU GENERAL PUBLIC LICENSE License. See the [LICENSE](LICENSE) file for more details.
