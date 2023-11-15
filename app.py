@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = '.\upload'
+app.config['UPLOAD_FOLDER'] = '.\upload\'
 app.config['ALLOWED_EXTENSIONS'] = {'wav'}
 
 def allowed_file(filename):
@@ -22,6 +22,7 @@ def upload_file():
                     os.makedirs(app.config['UPLOAD_FOLDER']) 
             """
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            print(file_path)
             file.save(file_path)
             zoom = float(request.form.get('zoom'))
             start = float(request.form.get('start'))
